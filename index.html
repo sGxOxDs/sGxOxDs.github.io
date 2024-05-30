@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+    <body>
+        <h1>WebPlay</h1>
+        <div id="WebPlay"></div>
+    </body>
+    <script>
+        function OpenWeb(str) {
+            window.open(str, "_self");
+        }
+        var name = "Nomi Game:Jet";
+        var url = "WebPlay/Nomi_Game_Jet";
+        for(var i = 0; i < 1; i++)
+        {
+            var node = document.createElement("BUTTON");
+            var textnode = document.createTextNode(name);
+            node.appendChild(textnode);
+            node.setAttribute("onclick", "OpenWeb('"+url+"');");
+            document.getElementById("WebPlay").appendChild(node);
+        }
+    </script>
 </html>
+
