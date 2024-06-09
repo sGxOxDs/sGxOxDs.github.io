@@ -67,6 +67,13 @@
         companyName: "sGxOxDs",
         productName: "Nomi GameJet",
         productVersion: "0.3",
+        cacheControl: function (url) {
+          //檢查快取控制
+          if (url.match(/\.data/) || url.match(/\.bundle/)) {
+            return "must-revalidate";
+          }
+          return "no-store";
+        },
         showBanner: unityShowBanner,
       };
 
