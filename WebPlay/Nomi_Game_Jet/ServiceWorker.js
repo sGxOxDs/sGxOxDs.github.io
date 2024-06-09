@@ -1,9 +1,9 @@
-const cacheName = "sGxOxDs-NomiJet-0.2";
+const cacheName = "sGxOxDs-Nomi GameJet-0.3";
 const contentToCache = [
-    "Build/PWA_0_2.loader.js",
-    "Build/PWA_0_2.framework.js.unityweb",
-    "Build/PWA_0_2.data.unityweb",
-    "Build/PWA_0_2.wasm.unityweb",
+    "Build/PWA_0_3.loader.js",
+    "Build/PWA_0_3.framework.js.unityweb",
+    "Build/PWA_0_3.data.unityweb",
+    "Build/PWA_0_3.wasm.unityweb",
     "TemplateData/style.css"
 
 ];
