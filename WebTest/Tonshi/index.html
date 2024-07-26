@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <title>Unity WebGL Player | Tonshi</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -20,6 +21,18 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
+      // 确保 Telegram Web App 对象存在
+      if (window.Telegram && window.Telegram.WebApp) 
+      {
+        // Get the Telegram WebApp instance
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+
+        // 获取 WebAppUser 信息
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        console.log(`userID = ${user.id} username = ${user.username} name = ${user.first_name} ${user.last_name}`);
+      }
+      
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.register("ServiceWorker.js");
@@ -57,11 +70,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Web.loader.js";
+      var loaderUrl = buildUrl + "/TG-Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Web.data.unityweb",
-        frameworkUrl: buildUrl + "/Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/Web.wasm.unityweb",
+        dataUrl: buildUrl + "/TG-Web.data.unityweb",
+        frameworkUrl: buildUrl + "/TG-Web.framework.js.unityweb",
+        codeUrl: buildUrl + "/TG-Web.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rumuinno",
         productName: "Tonshi",
