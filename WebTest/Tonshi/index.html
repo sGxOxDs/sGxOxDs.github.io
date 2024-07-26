@@ -21,9 +21,8 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
-      // 确保 Telegram Web App 对象存在
-      if (window.Telegram && window.Telegram.WebApp) 
-      {
+      try {
+
         // Get the Telegram WebApp instance
         window.Telegram.WebApp.ready();
         window.Telegram.WebApp.expand();
@@ -31,8 +30,11 @@
         // 获取 WebAppUser 信息
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         console.log(`userID = ${user.id} username = ${user.username} name = ${user.first_name} ${user.last_name}`);
+
+      } catch(e){
+        console.warn('This is Telegram WebApp. Error: ' + e);
       }
-      
+
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.register("ServiceWorker.js");
