@@ -124,7 +124,7 @@
           try
           {
             console.log("send");
-            window.unityInstance.SendMessage("TelegramWebAPI", "OnGetTelegramUserData", window.Telegram.WebApp.initDataUnsafe.user);
+            window.unityInstance.SendMessage("TelegramWebAPI", "OnGetTelegramUserData", window.Telegram.WebApp.initData);
           } catch(e)
           {
             console.warn('This is Telegram WebApp. Error: ' + e);
