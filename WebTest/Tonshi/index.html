@@ -3,6 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style>
+      body {
+        height: 10000vh !important;
+        position: static !important;
+        overscroll-behavior: none;
+      }
+  
+      flutter-view {
+        position: fixed !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+      }
+  
+      /* Safari-specific CSS */
+      @supports (-webkit-touch-callout: inherit) {
+        body {
+          height: 1vh !important;
+        }
+      }
+    </style>
+
     <script src="TemplateData/telegram-web-app.js"></script>
     <title>Unity WebGL Player | Tonshi</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
@@ -10,6 +32,9 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
+    <script>
+      window.scroll(0, window.document.body.scrollHeight);
+    </script>
     <div id="unity-container">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
