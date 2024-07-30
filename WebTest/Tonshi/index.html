@@ -21,16 +21,12 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
-      function SendTelegramUserData()
-      {
-
-      }
       try {
 
         // Get the Telegram WebApp instance
         window.Telegram.WebApp.ready();
         window.Telegram.WebApp.expand();
-
+        window.Telegram.WebApp.isVerticalSwipesEnabled = false;
         // 获取 WebAppUser 信息
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         console.log(`userID = ${user.id} username = ${user.username} name = ${user.first_name} ${user.last_name}`);
