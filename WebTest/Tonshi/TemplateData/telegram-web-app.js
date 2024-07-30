@@ -286,7 +286,7 @@
   var WebApp = {};
   var webAppInitData = '', webAppInitDataUnsafe = {};
   var themeParams = {}, colorScheme = 'light';
-  var webAppVersion = '7.7';
+  var webAppVersion = '6.0';
   var webAppPlatform = 'unknown';
 
   if (initParams.tgWebAppData && initParams.tgWebAppData.length) {
@@ -466,7 +466,7 @@
 
   var isVerticalSwipesEnabled = true;
   function toggleVerticalSwipes(enable_swipes) {
-    if (!versionAtLeast('7.7')) {
+    if (!versionAtLeast('7.6')) {
       console.warn('[Telegram.WebApp] Changing swipes behavior is not supported in version ' + webAppVersion);
       return;
     }
