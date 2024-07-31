@@ -29,7 +29,39 @@
     <title>Unity WebGL Player | Tonshi</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="manifest.webmanifest"> <!-- 同步旋轉遊戲畫面功能 -->
+    <script> // 同步旋轉遊戲畫面功能
+      function onOrientationChange() {
+          const canvas = document.getElementById('unity-canvas');
+          const angle = window.orientation;
+
+          if (angle === 0 || angle === 180) // Portrait or upside down
+          { 
+              canvas.style.transform = 'rotate(0deg)';
+              canvas.style.width = '100%';
+              canvas.style.height = '100%';
+          } 
+          else if (angle === 90) // Landscape - clockwise
+          { 
+              canvas.style.transform = 'rotate(-90deg)';
+              canvas.style.width = '100vh';
+              canvas.style.height = '100vw';
+          } 
+          else if (angle === -90) // Landscape - counterclockwise
+          {  
+              canvas.style.transform = 'rotate(90deg)';
+              canvas.style.width = '100vh';
+              canvas.style.height = '100vw';
+          }
+      }
+
+      window.addEventListener('orientationchange', onOrientationChange);
+      window.addEventListener('resize', onOrientationChange);
+
+      document.addEventListener('DOMContentLoaded', function() {
+          onOrientationChange();
+      });
+    </script>
   </head>
   <body>
     <script>/* 防止telegram下滑手勢關閉視窗跟導致點擊無法傳入unity */
