@@ -130,11 +130,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/TG-Web.loader.js";
+      var loaderUrl = buildUrl + "/Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/TG-Web.data.unityweb",
-        frameworkUrl: buildUrl + "/TG-Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/TG-Web.wasm.unityweb",
+        dataUrl: buildUrl + "/Web.data.unityweb",
+        frameworkUrl: buildUrl + "/Web.framework.js.unityweb",
+        codeUrl: buildUrl + "/Web.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rumuinno",
         productName: "Tonshi",
@@ -190,6 +190,31 @@
         function(event) {
           loadingBar.style.display = "none";
         });
+
+      document.addEventListener("unityTelegramWebAPI_OpenLink",
+        function(event) {
+          try
+          {
+            console.log("open link");
+            window.Telegram.WebApp.openLink(event.detail.url);
+          } catch(e)
+          {
+            console.warn('This is Telegram WebApp. Error: ' + e);
+          }
+        });
+
+      document.addEventListener("unityTelegramWebAPI_OpenTelegramLink",
+        function(event) {
+          try
+          {
+            console.log("open telegram link");
+            window.Telegram.WebApp.openTelegramLink(event.detail.url);
+          } catch(e)
+          {
+            console.warn('This is Telegram WebApp. Error: ' + e);
+          }
+        });
+      
     </script>
   </body>
 </html>
