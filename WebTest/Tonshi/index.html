@@ -214,7 +214,17 @@
             console.warn('This is Telegram WebApp. Error: ' + e);
           }
         });
-      
+
+      document.addEventListener("unityWebAPI_ClipboardCopy",
+        function(event) {
+          console.log("Clipboard");
+          navigator.clipboard.writeText(event.detail.text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+          }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+          });
+        });
+
     </script>
   </body>
 </html>
