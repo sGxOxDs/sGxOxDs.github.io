@@ -130,11 +130,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Web.loader.js";
+      var loaderUrl = buildUrl + "/TG-Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Web.data.unityweb",
-        frameworkUrl: buildUrl + "/Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/Web.wasm.unityweb",
+        dataUrl: buildUrl + "/TG-Web.data.unityweb",
+        frameworkUrl: buildUrl + "/TG-Web.framework.js.unityweb",
+        codeUrl: buildUrl + "/TG-Web.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rumuinno",
         productName: "Tonshi",
@@ -220,10 +220,34 @@
           console.log("Clipboard");
           navigator.clipboard.writeText(event.detail.text).then(function() {
             console.log('Async: Copying to clipboard was successful!');
-          }, function(err) {
-            console.error('Async: Could not copy text: ', err);
+          }).catch(function(err) {
+            execCopy(event).then(
+              function() {
+                console.log('Async: execCopy was successful!');
+              },
+            ).catch(function(err) {
+              console.error('Async: Could not copy text: ', err);
+            });
           });
         });
+      
+      function execCopy(event) {
+        console.log("execCopy");
+        return new Promise((resolve, reject) => {
+          let textarea = document.createElement("textarea");
+          textarea.value = event.detail.text;
+          textarea.style.position = "absolute";
+          textarea.style.left = "-999999px";
+          textarea.style.top = "-999999px";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.focus();
+          textarea.select();
+          let is_copy = document.execCommand('copy');
+          textarea.remove();
+          (is_copy ? resolve : reject)();
+        });
+      };
 
     </script>
   </body>
