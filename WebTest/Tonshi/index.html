@@ -134,11 +134,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/TG-Web.loader.js";
+      var loaderUrl = buildUrl + "/Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/TG-Web.data.unityweb",
-        frameworkUrl: buildUrl + "/TG-Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/TG-Web.wasm.unityweb",
+        dataUrl: buildUrl + "/Web.data.unityweb",
+        frameworkUrl: buildUrl + "/Web.framework.js.unityweb",
+        codeUrl: buildUrl + "/Web.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rumuinno",
         productName: "Tonshi",
@@ -272,6 +272,19 @@
         });
 
     </script>
-    <script src="./TonConnectFunctions.js">/* KY的TON相關code */</script>
+    <!-- KY的TON相關code -->
+    <script
+      src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"
+    >
+            /* TonConnect UI */
+            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: "https://tonshi-21cac.web.app/tonconnect-manifest.json",
+        buttonRootId: "ton-connect",
+        actionsConfiguration: {
+          twaReturnUrl: "https://t.me/OfficialTonshi_bot?startapp",
+        },
+      });
+    </script>
+    <script src="dist/TonConnectFunctions.js" type="module"></script>
   </body>
 </html>
