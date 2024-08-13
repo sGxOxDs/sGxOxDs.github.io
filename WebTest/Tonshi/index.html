@@ -170,7 +170,7 @@
           progressBarFull.style.width = 80 * progress + "%";
           progressBarText.textContent = Math.round(80 * progress) + "%";
         }).then((unityInstance) => {
-          //loadingBar.style.display = "none";
+          loadingBar.style.display = "none";
           window.unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);
