@@ -92,6 +92,15 @@
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         console.log(`userID = ${user.id} username = ${user.username} name = ${user.first_name} ${user.last_name}`);
 
+        // 如果是safari
+        if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent))
+        {
+          // 進行一些safari的處理
+          console.log("This is Safari");
+          window.Telegram.WebApp.openLink(location.href);
+          
+        }
+
       } catch(e){
         console.warn('This is Telegram WebApp. Error: ' + e);
       }
@@ -170,7 +179,7 @@
           progressBarFull.style.width = 80 * progress + "%";
           progressBarText.textContent = Math.round(80 * progress) + "%";
         }).then((unityInstance) => {
-          loadingBar.style.display = "none";
+          //loadingBar.style.display = "none";
           window.unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);
@@ -272,19 +281,6 @@
         });
 
     </script>
-    <!-- KY的TON相關code -->
-    <script
-      src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"
-    >
-            /* TonConnect UI */
-            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-        manifestUrl: "https://tonshi-21cac.web.app/tonconnect-manifest.json",
-        buttonRootId: "ton-connect",
-        actionsConfiguration: {
-          twaReturnUrl: "https://t.me/OfficialTonshi_bot?startapp",
-        },
-      });
-    </script>
-    <script src="dist/TonConnectFunctions.js" type="module"></script>
+    <script src="./TonConnectFunctions.js">/* KY的TON相關code */</script>
   </body>
 </html>

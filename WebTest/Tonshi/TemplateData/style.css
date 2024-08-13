@@ -3,14 +3,6 @@
   src: url('NerkoOne-Regular.ttf') format('truetype');
 }
 
-* { 
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 body { padding: 0; margin: 0 }
 #unity-container { position: fixed; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;}
 #unity-canvas { width: 100%; height: 100%; background: #231F20; transform-origin: center center; transition: transform 0.5s, width 0.5s, height 0.5s; }
