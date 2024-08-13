@@ -6,7 +6,7 @@
 
     <style>/* 防止telegram下滑手勢關閉視窗跟導致點擊無法傳入unity */
       body {
-        height: 1000vh !important;
+        height: 10000vh !important;
         position: static !important;
         overscroll-behavior: none;
       }
@@ -34,9 +34,6 @@
       function onOrientationChange() {
           const canvas = document.getElementById('unity-canvas');
           const angle = window.orientation;
-          if (window.innerHeight === screen.height) { 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
 
           if (angle === 0 || angle === 180) // Portrait or upside down
           { 
@@ -162,6 +159,9 @@
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
+        
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
       }
 
       loadingBar.style.display = "block";
