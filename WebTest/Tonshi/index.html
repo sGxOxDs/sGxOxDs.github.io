@@ -92,15 +92,6 @@
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         console.log(`userID = ${user.id} username = ${user.username} name = ${user.first_name} ${user.last_name}`);
 
-        // 如果是safari
-        if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent))
-        {
-          // 進行一些safari的處理
-          console.log("This is Safari");
-          window.Telegram.WebApp.openLink(location.href);
-          
-        }
-
       } catch(e){
         console.warn('This is Telegram WebApp. Error: ' + e);
       }
