@@ -6,7 +6,7 @@
 
     <style>/* 防止telegram下滑手勢關閉視窗跟導致點擊無法傳入unity */
       body {
-        height: 10000vh !important;
+        height: 101vh !important;
         position: static !important;
         overscroll-behavior: none;
       }
@@ -34,6 +34,7 @@
       function onOrientationChange() {
           const canvas = document.getElementById('unity-canvas');
           const angle = window.orientation;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
 
           if (angle === 0 || angle === 180) // Portrait or upside down
           { 
