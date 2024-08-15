@@ -134,11 +134,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Web.loader.js";
+      var loaderUrl = buildUrl + "/TG-Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Web.data.unityweb",
-        frameworkUrl: buildUrl + "/Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/Web.wasm.unityweb",
+        dataUrl: buildUrl + "/TG-Web.data.unityweb",
+        frameworkUrl: buildUrl + "/TG-Web.framework.js.unityweb",
+        codeUrl: buildUrl + "/TG-Web.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rumuinno",
         productName: "Tonshi",
@@ -159,7 +159,6 @@
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
-        
       }
 
       loadingBar.style.display = "block";
@@ -173,17 +172,11 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           window.unityInstance = unityInstance;
-          
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
-
-      addEventListener("load", function() {
-        var viewport = document.querySelector("meta[name=viewport]");
-        viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
-      });
 
       document.addEventListener("unityTelegramWebAPI_TelegramUserDataRequest", 
         function(event) {
