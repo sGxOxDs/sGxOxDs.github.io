@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "NerkoOne";
+  src: url("NerkoOne-Regular.ttf") format("truetype");
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+#unity-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#unity-canvas {
+  width: 100%;
+  height: 100%;
+  background: #231f20;
+  transform-origin: center center;
+  transition: transform 0.5s, width 0.5s, height 0.5s;
+}
+#unity-loading-bar {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: #5e99f2;
+}
+#unity-logo {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("loading.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  aspect-ratio: auto;
+}
+#unity-progress-bar-empty {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 30px;
+  margin-top: 10px;
+  background: #ffffff no-repeat center;
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 3px solid #000000;
+}
+#unity-progress-bar-full {
+  width: 0%;
+  height: 30px;
+  margin-top: 15px;
+  background: #ffd32c no-repeat center;
+  transform: translate(0%, -50%);
+  border-radius: 10px;
+}
+#unity-warning {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  background: white;
+  padding: 10px;
+  display: none;
+}
+#unity-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 22px;
+  font-family: "NerkoOne", sans-serif;
+}
