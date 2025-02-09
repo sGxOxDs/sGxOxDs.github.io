@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>聖鳶の遊戲</title>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="聖鳶, 聖鳶の遊戲, sGxOxDs, St.Eagle, 諾米, 諾諾莎, Nomi, Nonosa">
-        <meta name="description" content="聖鳶用來藏各種小遊戲的地方">
-        <meta name="author" content="sGxOxDs">
-        <link rel="shortcut icon" href="Img/sGxOxDs.ico">
-    </head>
-    <body>
-        <h1>網頁小遊戲</h1>
-            <div id="WebPlay" class="GridContainer">
-            </div>
-        <h1>Youtube頻道</h1>
-        <button onclick="OpenWeb('https://www.youtube.com/@sGxOxDs');">夜梟&聖鳶</button>
-    </body>
+
+<head>
+    <title>聖鳶の遊戲</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="聖鳶, 聖鳶の遊戲, sGxOxDs, St.Eagle, 諾米, 諾諾莎, Nomi, Nonosa">
+    <meta name="description" content="聖鳶用來藏各種小遊戲的地方">
+    <meta name="author" content="sGxOxDs">
+    <link rel="shortcut icon" href="Img/sGxOxDs.ico">
     <script>
-        function OpenWeb(str) {
-            window.open(str, "_self");
-        }
-        const games =[
-            {
-                "name": "諾米遊戲：噴射",
-                "url": "WebPlay/Nomi_Game_Jet"
-            },
-            {
-                "name": "諾米遊戲：星爆",
-                "url": "NomiGame"
-            },
-            {
-                "name": "GameJam作品：地震",
-                "url": "GameJam-2023-03/Build/Web/"
-            },
-            {
-                "name": "GameJam作品：深海靈魂湯",
-                "url": "https://joseph-huang.itch.io/the-soup-from-the-deep"
-            },
-            {
-                "name": "高中作品：吾人背叛",
-                "url": "No-One-Betray/www/"
-            },
-            {
-                "name": "幫Olan架設：塔防者",
-                "url": "Tower-Defender"
-            }
-        ];
-
-        games.forEach(game => {
-            var node = document.createElement("BUTTON");
-            var textnode = document.createTextNode(game.name);
-            node.appendChild(textnode);
-            node.setAttribute("onclick", "OpenWeb('"+game.url+"');");
-            node.setAttribute("class", "GridButtonWebPlay");
-            document.getElementById("WebPlay").appendChild(node);
-        });
-        //<button class="GridButtonWebPlay" >TEST BUTTON</button>
-
+        window.location.replace("https://sgxoxds.github.io/Personal-React/");
     </script>
-    <style>
-        .GridContainer {
-            display: grid;
-            grid-template-columns: repeat( auto-fit, minmax(max(200px,30vw), 1fr) );
-            grid-gap: 10px;
-            background-color: #888888;
-            padding: 10px;
-            align-content: center;
-            justify-items: center;
-        }
-    	.GridButtonWebPlay {
-        	color: #FFFFFF;
-            background-color: #222222;
-            width: max(200px,30vw);
-            aspect-ratio: 1 / 1;
-            display: grid;
-            align-content: center;
-        }
-    </style>
-</html>
+</head>
 
+<body>
+    <h1>網頁小遊戲</h1>
+    <div id="WebPlay" class="GridContainer">
+    </div>
+    <h1>Youtube頻道</h1>
+    <button onclick="OpenWeb('https://www.youtube.com/@sGxOxDs');">夜梟&聖鳶</button>
+</body>
+<script>
+    function OpenWeb(str) {
+        window.open(str, "_self");
+    }
+    const games = [
+        {
+            "name": "諾米遊戲：噴射",
+            "url": "WebPlay/Nomi_Game_Jet"
+        },
+        {
+            "name": "諾米遊戲：星爆",
+            "url": "NomiGame"
+        },
+        {
+            "name": "GameJam作品：地震",
+            "url": "GameJam-2023-03/Build/Web/"
+        },
+        {
+            "name": "GameJam作品：深海靈魂湯",
+            "url": "https://joseph-huang.itch.io/the-soup-from-the-deep"
+        },
+        {
+            "name": "高中作品：吾人背叛",
+            "url": "No-One-Betray/www/"
+        },
+        {
+            "name": "幫Olan架設：塔防者",
+            "url": "Tower-Defender"
+        }
+    ];
+
+    games.forEach(game => {
+        var node = document.createElement("BUTTON");
+        var textnode = document.createTextNode(game.name);
+        node.appendChild(textnode);
+        node.setAttribute("onclick", "OpenWeb('" + game.url + "');");
+        node.setAttribute("class", "GridButtonWebPlay");
+        document.getElementById("WebPlay").appendChild(node);
+    });
+    //<button class="GridButtonWebPlay" >TEST BUTTON</button>
+
+</script>
+<style>
+    .GridContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(max(200px, 30vw), 1fr));
+        grid-gap: 10px;
+        background-color: #888888;
+        padding: 10px;
+        align-content: center;
+        justify-items: center;
+    }
+
+    .GridButtonWebPlay {
+        color: #FFFFFF;
+        background-color: #222222;
+        width: max(200px, 30vw);
+        aspect-ratio: 1 / 1;
+        display: grid;
+        align-content: center;
+    }
+</style>
+
+</html>
